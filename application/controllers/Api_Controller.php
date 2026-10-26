@@ -436,7 +436,6 @@ echo json_encode($data);}
  
       $array=array();
       $info=$this->input->post();
-            $this->db->db_debug = FALSE;   // report DB errors as messages instead of ending the request with a 500
      $lead_id=trim($info['lead_id']);
      $lead_title=trim($info['lead_title']);
       $lead_id_mobile = trim($this->input->post('lead_id_mobile', true));
