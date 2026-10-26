@@ -1,0 +1,44 @@
+*/config/development
+*/logs/log-*.php
+!*/logs/index.html
+*/cache/*
+!*/cache/index.html
+!*/cache/.htaccess
+
+user_guide_src/build/*
+user_guide_src/cilexer/build/*
+user_guide_src/cilexer/dist/*
+user_guide_src/cilexer/pycilexer.egg-info/*
+
+#codeigniter 3
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
+
+# logs and debug dumps
+*.log
+/webhook_log.txt
+/query_log.txt
+/rr_index.txt
+/api/date_debug.txt
+/api/webhook_log.txt
+/logs_private/
+# backups and dumps
+*.bak
+*.bak.*
+*.bak_*
+.htaccess.phpupgrader.*
+*.zip
+*.sql
+# uploads and sessions
+/uploads/
+/application/sessions/
+# database credentials (use the .example copies instead)
+/db_config.php
+/application/config/database.php
+/application/config/clinic_db.php
+
+# API keys
+/application/config/openai.php
+/corephp/create_payment.php
+/payment_status_sync.php

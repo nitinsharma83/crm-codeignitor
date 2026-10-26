@@ -1,0 +1,20 @@
+RewriteEngine On
+
+# ✅ Fix Authorization Header (IMPORTANT)
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript
+</IfModule>
+
+<IfModule mod_security.c>
+SecRuleRemoveById 400011
+SecRuleRemoveById 400012
+</IfModule>
