@@ -77,10 +77,21 @@ $defaults = [
     'whatsapp_greetings'  => 0,
 ];
 
+// Column sizes in tbl_lead: strict MySQL rejects text that is too long, so cut it to fit
+$max_len = [
+    'lead_id' => 200, 'customer_name' => 500, 'company_name' => 200, 'city' => 200, 'state' => 200,
+    'mobile_no' => 200, 'secondary_mobile_no' => 30, 'email_id' => 200, 'requirement' => 1000,
+    'description' => 200, 'lead_source' => 500, 'status' => 200, 'assigned_by' => 200,
+    'assigned_to' => 200, 'today' => 35, 'team_head' => 35,
+];
+
 $row = $defaults;
 foreach ($allowed_fields as $field) {
     if (isset($lead_data[$field]) && !is_array($lead_data[$field])) {
         $row[$field] = clean($lead_data[$field]);
+        if (isset($max_len[$field])) {
+            $row[$field] = mb_substr($row[$field], 0, $max_len[$field], 'UTF-8');
+        }
     }
 }
 $row['userid'] = (int) $row['userid'];
