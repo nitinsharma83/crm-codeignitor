@@ -210,7 +210,7 @@ public function lead_creation_process_employee(){
      $lead_id=$con;
      $Notification_type='Lead';
      $message='<b style="color:green">'.$from_username.'</b> This Employee Created New Lead';
-     $notification=array('from_username'=>$from_username,'to_username'=>$to_username,'from_userid'=>$from_userid,'to_userid'=>$to_userid,'message'=>$message,'view'=>'0','created_date'=>date('Y-m-d H:i:s'),'status'=>'active','lead_id'=>$lead_id,'Notification_type'=>$Notification_type);
+     $notification=array('from_username'=>(string)$from_username,'to_username'=>(string)$to_username,'from_userid'=>(int)$from_userid,'to_userid'=>(int)$to_userid,'message'=>$message,'view'=>'0','created_date'=>date('Y-m-d H:i:s'),'status'=>'active','lead_id'=>$lead_id,'Notification_type'=>$Notification_type);
      $con=$this->GenericModel->insert_generic_record('tbl_notification',$notification);
     $this->session->set_userdata('success','Lead Created successfully..');     
     $array=array('code'=>200,'message'=>'Lead Created successfully..');
@@ -247,7 +247,7 @@ public function lead_creation_process_employee(){
      $from_userid=$this->session->userdata('ADMIN_ID'); $to_userid=$userid;
      $from_username=$this->session->userdata('USERNAME'); $to_username=$to_user[0]->full_name;
      $message='<b style="color:green">'.$title.'</b> This Lead Updated By '.$from_username;
-     $notification=array('from_username'=>$from_username,'to_username'=>$to_username,'from_userid'=>$from_userid,'to_userid'=>$to_userid,'message'=>$message,'view'=>'0','created_date'=>date('Y-m-d H:i:s'),'status'=>'active','lead_id'=>$lead_id,'Notification_type'=>$Notification_type);
+     $notification=array('from_username'=>(string)$from_username,'to_username'=>(string)$to_username,'from_userid'=>(int)$from_userid,'to_userid'=>(int)$to_userid,'message'=>$message,'view'=>'0','created_date'=>date('Y-m-d H:i:s'),'status'=>'active','lead_id'=>$lead_id,'Notification_type'=>$Notification_type);
      $con=$this->GenericModel->insert_generic_record('tbl_notification',$notification);*/
     $this->session->set_userdata('success','Lead Updated successfully..');     
     $array=array('code'=>200,'message'=>'Lead Updated successfully..');
@@ -335,7 +335,7 @@ public function lead_creation_process(){
      $lead_id=$con;
      $Notification_type='Lead';
      $message='<b style="color:green">Lead ID '.$lead_ids.'</b> This Lead Assign you';
-     $notification=array('from_username'=>$from_username,'to_username'=>$to_username,'from_userid'=>$from_userid,'to_userid'=>$to_userid,'message'=>$message,'view'=>'0','created_date'=>date('Y-m-d H:i:s'),'status'=>'active','lead_id'=>$lead_id,'Notification_type'=>$Notification_type);
+     $notification=array('from_username'=>(string)$from_username,'to_username'=>(string)$to_username,'from_userid'=>(int)$from_userid,'to_userid'=>(int)$to_userid,'message'=>$message,'view'=>'0','created_date'=>date('Y-m-d H:i:s'),'status'=>'active','lead_id'=>$lead_id,'Notification_type'=>$Notification_type);
      $con=$this->GenericModel->insert_generic_record('tbl_notification',$notification);
     $this->session->set_userdata('success','Lead Created successfully..');     
     $array=array('code'=>200,'message'=>'Lead Created successfully..');
@@ -373,7 +373,7 @@ public function lead_creation_process(){
      $from_userid=$this->session->userdata('ADMIN_ID'); $to_userid=$userid;
      $from_username=$this->session->userdata('USERNAME'); $to_username=$to_user[0]->full_name;
      $message='<b style="color:green">'.$title.'</b> This Lead Updated By '.$from_username;
-     $notification=array('from_username'=>$from_username,'to_username'=>$to_username,'from_userid'=>$from_userid,'to_userid'=>$to_userid,'message'=>$message,'view'=>'0','created_date'=>date('Y-m-d H:i:s'),'status'=>'active','lead_id'=>$lead_id,'Notification_type'=>$Notification_type);
+     $notification=array('from_username'=>(string)$from_username,'to_username'=>(string)$to_username,'from_userid'=>(int)$from_userid,'to_userid'=>(int)$to_userid,'message'=>$message,'view'=>'0','created_date'=>date('Y-m-d H:i:s'),'status'=>'active','lead_id'=>$lead_id,'Notification_type'=>$Notification_type);
      $con=$this->GenericModel->insert_generic_record('tbl_notification',$notification);*/
     $this->session->set_userdata('success','Lead Updated successfully..');     
     $array=array('code'=>200,'message'=>'Lead Updated successfully..');
@@ -453,7 +453,7 @@ echo json_encode($data);}
  
      $comment=trim($info['comment']);
      $lead_statuss=trim($info['lead_statuss']);
-     $tarik=trim($info['tarik']);
+          $tarik_db = ($tarik==='' || strpos($tarik,'0000-00-00')===0) ? null : $tarik;
      $description=trim($info['description']);
      $userid=trim($info['userid']);
      $lead_id_ID=trim($info['lead_id_ID']);
@@ -462,18 +462,18 @@ echo json_encode($data);}
    $to_username='';
    if($this->session->userdata('USERTYPE')=='Admin'){
    $to_user=$this->GenericModel->get_record_with_condition("tbl_registration","full_name","id='".$userid."'");
-   $to_userid=$userid;
-   $to_username=$to_user[0]->full_name;
+      $to_userid=(int)$userid;
+   $to_username=!empty($to_user[0]->full_name) ? $to_user[0]->full_name : 'Unassigned';
    }else{
     $to_user=$this->GenericModel->get_record_with_condition("tbl_registration","full_name,id","user_type='Admin'");
-    $to_userid=$to_user[0]->id;
-    $to_username=$to_user[0]->full_name;
+        $to_userid=!empty($to_user[0]->id) ? (int)$to_user[0]->id : 0;
+    $to_username=!empty($to_user[0]->full_name) ? $to_user[0]->full_name : 'Admin';
    }
    $from_username=$this->session->userdata('USERNAME');
    $from_userid=$this->session->userdata('ADMIN_ID');
    $Notification_type='Lead';
    $message='<b style="color:green">ID ID'.$lead_id_ID.'</b> Commented';
-   $notification=array('from_username'=>$from_username,'to_username'=>$to_username,'from_userid'=>$from_userid,'to_userid'=>$to_userid,'message'=>$message,'view'=>'0','created_date'=>date('Y-m-d H:i:s'),'status'=>'active','lead_id'=>$lead_id,'Notification_type'=>$Notification_type);
+   $notification=array('from_username'=>(string)$from_username,'to_username'=>(string)$to_username,'from_userid'=>(int)$from_userid,'to_userid'=>(int)$to_userid,'message'=>$message,'view'=>'0','created_date'=>date('Y-m-d H:i:s'),'status'=>'active','lead_id'=>$lead_id,'Notification_type'=>$Notification_type);
     $con=$this->GenericModel->insert_generic_record('tbl_notification',$notification);
  
    if(count($lead_getting)<=100){
