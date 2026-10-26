@@ -38,10 +38,12 @@ try {
     }
 
     try {
+               // CRM database (tbl_lead): same login the CRM and webhooks use on this server
+        require_once __DIR__ . '/../db_config.php';
         $leadDbh = new PDO(
-            "mysql:host=localhost;dbname=u457158986_team;charset=utf8",
-            "u457158986_team",
-            "#Team@123",
+            "mysql:host=$dbHost;dbname=$dbDatabase;charset=utf8",
+            $dbUser,
+            $dbPasswrod,
             [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
         );
         $stmtPin = $leadDbh->prepare("SELECT pincode FROM tbl_lead WHERE id = :id LIMIT 1");

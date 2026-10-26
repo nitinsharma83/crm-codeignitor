@@ -1,16 +1,17 @@
 <?php
-$host = "srv834.hstgr.io";
-$db   = "u457158986_gautamayurveda";
-$user = "u457158986_gautamayurveda";
-$pass = "#Gautam@123";
+// Appointment / clinic database for the corephp endpoints.
+// Settings live in application/config/clinic_db.php (not in Git).
+if (!defined('BASEPATH')) { define('BASEPATH', true); }   // clinic_db.php refuses to load without it
+$clinicCfg = include __DIR__ . '/../application/config/clinic_db.php';
 
 try {
     $dbh = new PDO(
-        "mysql:host=$host;dbname=$db;charset=utf8",
-        $user,
-        $pass,
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+        "mysql:host={$clinicCfg['host']};port={$clinicCfg['port']};dbname={$clinicCfg['database']};charset=utf8",
+        $clinicCfg['username'],
+        $clinicCfg['password'],
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_TIMEOUT => 5]
     );
 } catch (PDOException $e) {
-    die("DB Error");
+    error_log('corephp/db.php connection failed: ' . $e->getMessage());
+    die("Appointment database unavailable");
 }
