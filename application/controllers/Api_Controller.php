@@ -498,7 +498,7 @@ $comment_array = array(
     if($con=='Error'){
       $array=array('code'=>400,'message'=>'Your submitted data is inconsistent. Please contact to SSR Media');
     }else{
-        $lead_array=array('status'=>$lead_statuss,'description'=>$description,'tarik'=>$tarik);
+        $lead_array=array('status'=>$lead_statuss,'description'=>mb_substr($description,0,200),'tarik'=>$tarik_db);
        $where='id='.$lead_id;
       $this->GenericModel->update_generic_record('tbl_lead',$lead_array,$where);
      $data['data']=$this->GenericModel->get_record_with_condition("tbl_comment","*","lead_id='".$lead_id."' order by id desc");
