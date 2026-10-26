@@ -436,6 +436,7 @@ echo json_encode($data);}
  
       $array=array();
       $info=$this->input->post();
+            $this->db->db_debug = FALSE;   // report DB errors as messages instead of ending the request with a 500
      $lead_id=trim($info['lead_id']);
      $lead_title=trim($info['lead_title']);
       $lead_id_mobile = trim($this->input->post('lead_id_mobile', true));
@@ -495,12 +496,20 @@ $comment_array = array(
    $con = $this->GenericModel->insert_generic_record('tbl_comment', $comment_array);
  
  
-    if($con=='Error'){
-      $array=array('code'=>400,'message'=>'Your submitted data is inconsistent. Please contact to SSR Media');
+       if($con=='Error'){
+      $dberr = $this->db->error();
+      log_message('error', 'Comment insert failed: ' . $dberr['code'] . ' ' . $dberr['message']);
+      $array=array('code'=>400,'message'=>'Could not save comment: ' . $dberr['message']);
     }else{
         $lead_array=array('status'=>$lead_statuss,'description'=>mb_substr($description,0,200),'tarik'=>$tarik_db);
        $where='id='.$lead_id;
-      $this->GenericModel->update_generic_record('tbl_lead',$lead_array,$where);
+            $upd = $this->GenericModel->update_generic_record('tbl_lead',$lead_array,$where);
+      if($upd=='Error'){
+        $dberr = $this->db->error();
+        log_message('error', 'Lead update failed: ' . $dberr['code'] . ' ' . $dberr['message']);
+        echo json_encode(array('code'=>400,'message'=>'Comment saved, but the lead status update failed: ' . $dberr['message']));
+        return;
+      }
      $data['data']=$this->GenericModel->get_record_with_condition("tbl_comment","*","lead_id='".$lead_id."' order by id desc");
      $datas=$this->load->view('admin/site/ajax_loan_comment', $data, TRUE);
      $array=array('code'=>200,'message'=>'Comment Submitted Successfully','comments'=>$datas);
