@@ -452,9 +452,10 @@ echo json_encode($data);}
         return;
      }
  
-     $comment=trim($info['comment']);
+          $comment=trim($info['comment']);
      $lead_statuss=trim($info['lead_statuss']);
-          $tarik_db = ($tarik==='' || strpos($tarik,'0000-00-00')===0) ? null : $tarik;
+     $tarik=trim($info['tarik']);
+     $tarik_db = ($tarik==='' || strpos($tarik,'0000-00-00')===0) ? null : $tarik;
      $description=trim($info['description']);
      $userid=trim($info['userid']);
      $lead_id_ID=trim($info['lead_id_ID']);
