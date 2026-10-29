@@ -160,7 +160,18 @@ if(count($query)>=1){
 echo json_encode($array);
 }
 
-
+public function delete_duplicate_lead(){
+    $username = $this->session->userdata('USERNAME');
+    $id = (int) $this->input->post('id');
+    if ($username && $id > 0 && $this->input->method() === 'post') {
+        $lead = $this->db->get_where('tbl_lead', ['id' => $id])->row();
+        // Admin can delete any lead; an agent only their own
+        if ($lead && ($this->session->userdata('USERTYPE') == 'Admin' || $lead->assigned_to === $username)) {
+            $this->db->delete('tbl_lead', ['id' => $id]);
+        }
+    }
+    redirect('duplicate');
+}
 
 
 

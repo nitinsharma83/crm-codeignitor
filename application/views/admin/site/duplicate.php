@@ -167,7 +167,12 @@ echo "<br><small>Normalized: ".substr(preg_replace('/\D/', '', $data['mobile_no'
 </td>
    <td><?php echo $data['status']; ?> </td>
    <td><?php echo $data['assigned_to']; ?></td>
-   <td><a href="delete.php?id=<?php echo $data['id'] ?>">Delete</a></td>
+      <td>
+     <form method="post" action="<?php echo base_url('delete_duplicate_lead'); ?>" onsubmit="return confirm('Delete this lead?');">
+       <input type="hidden" name="id" value="<?php echo (int) $data['id']; ?>">
+       <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+     </form>
+   </td>
  <tr>
  <?php
   $sn++;}} else { ?>

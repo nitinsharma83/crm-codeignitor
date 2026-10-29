@@ -99,3 +99,4 @@ $route['tasks/run-wati-assign'] = 'Assign_Cron/assign_wati_leads';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['delete_duplicate_lead']='SupportController/delete_duplicate_lead';
