@@ -157,7 +157,7 @@ if ($query->num_rows() > 0) {
             $update['state'] = $this->input->post('state');
         }
 if ($this->input->post('description') !== null) {
-    $update_data['description'] = $this->input->post('description', false);
+    $update['description'] = $this->input->post('description', false);
 }
         // Age — sent by the "Age / Gender" row on the Overview tab, but this method never
         // picked it up before, so editing age here had no effect.
