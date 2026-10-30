@@ -1153,9 +1153,20 @@ $pincodeGateAttr = $hasPincode ? '' : 'disabled title="Add a pincode to this lea
                             </div>
                         </div>
 
-                        <div class="info-row">
-                            <div class="info-label"><i class="fa fa-align-left"></i> Description</div>
-                            <div class="info-value text-left"><?php echo nl2br(htmlspecialchars($q[0]->description)); ?></div>
+                        <div class="info-row" style="display:block;">
+                            <div class="info-label" style="margin-bottom:10px;"><i class="fa fa-align-left"></i> Lead Description</div>
+                            <div style="width:100%;">
+                                <textarea
+                                    id="lead_description"
+                                    name="description"
+                                    class="form-control"
+                                    rows="5"
+                                    maxlength="10000"
+                                    placeholder="Enter lead description..."
+                                    style="width:100%; min-height:120px; resize:vertical; text-align:left; font-weight:400;"
+                                ><?php echo htmlspecialchars((string)($q[0]->description ?? ''), ENT_QUOTES, 'UTF-8'); ?></textarea>
+                                <small class="text-muted">You can edit this description and save it with the Save Changes button below.</small>
+                            </div>
                         </div>
 
                     </div>
@@ -1925,7 +1936,8 @@ $(document).on('click', '#save_all_lead_details', function () {
         company_name: $('#company_name').val(),
         lead_priority: $('#lead_priority').val(),
         requirement: $('#requirement').val(),
-        city: $('#city').val()
+        city: $('#city').val(),
+        description: $('#lead_description').val()
     };
 
     let assignedSelect = $('#assigned_to');
