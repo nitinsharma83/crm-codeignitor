@@ -53,19 +53,22 @@ if ($username == 'Admin')
 }
 else
 {
-    // Agent: own leads whose phone number appears on more than one lead anywhere in the CRM
+    // Agent: only duplicates inside their OWN assigned leads (same logic as the admin list, limited to this agent)
     $u = $this->db->escape($username);
 
     $query = "
     SELECT t1.id, t1.customer_name, t1.company_name, t1.mobile_no, t1.status, t1.assigned_to
     FROM tbl_lead t1
     INNER JOIN (
-        SELECT RIGHT(REPLACE(REPLACE(mobile_no, '+', ''), ' ', ''), 10) AS nm
+        SELECT assigned_to,
+               RIGHT(REPLACE(REPLACE(mobile_no, '+', ''), ' ', ''), 10) AS normalized_mobile
         FROM tbl_lead
-        WHERE mobile_no <> ''
-        GROUP BY nm
+        WHERE assigned_to = $u
+        GROUP BY assigned_to, normalized_mobile
         HAVING COUNT(*) > 1
-    ) d ON RIGHT(REPLACE(REPLACE(t1.mobile_no, '+', ''), ' ', ''), 10) = d.nm
+    ) t2
+    ON t1.assigned_to = t2.assigned_to
+    AND RIGHT(REPLACE(REPLACE(t1.mobile_no, '+', ''), ' ', ''), 10) = t2.normalized_mobile
     WHERE t1.assigned_to = $u
     ORDER BY t1.id ASC
     ";
