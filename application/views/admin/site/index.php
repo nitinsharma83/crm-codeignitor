@@ -362,7 +362,7 @@ $totalApptRedirectUrl = $base_url . http_build_query([
                         'date_to' => $date_to
                     ]);
                 ?>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <a href="<?= $redirectUrl; ?>" class="card-link">
                         <div class="card-glass gradient-status p-3 text-center clickable-card">
                             <h6><?= $status; ?></h6>
@@ -392,7 +392,7 @@ $totalApptRedirectUrl = $base_url . http_build_query([
                     ]);
                 ?>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <a href="<?= $redirectUrl; ?>" class="card-link">
                         <div class="card-glass p-3 text-center clickable-card"
                              style="border-left:5px solid #047edf;">
