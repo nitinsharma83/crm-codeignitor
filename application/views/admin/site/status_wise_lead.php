@@ -891,13 +891,7 @@ $pincodeGateAttr = $hasPincode ? '' : 'disabled title="Add a pincode to this lea
             <?php } ?>
         </div>
 
-        <div class="lead-hero-right" title="Derived from lead priority (<?php echo strtoupper($priorityClass); ?>)">
-            <div class="score-label">Lead Score</div>
-            <div class="lead-score-ring" style="--score: <?php echo $scorePercent; ?>;">
-                <div class="lead-score-inner"><span class="score-val"><?php echo $scorePercent; ?>%</span></div>
-            </div>
-            <div class="hot-lead-label priority-text-<?php echo $priorityClass; ?>"><i class="fa fa-fire"></i> <?php echo strtoupper($priorityClass); ?> Lead</div>
-        </div>
+       
     </div>
 
     <?php if (!$hasPincode) { ?>
