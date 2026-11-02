@@ -8,11 +8,13 @@
    1. Slim sidebar + header  (desktop only; phones keep the slide-out menu)
    --------------------------------------------------------------------- */
 @media (min-width: 992px) {
-
   /* header bar: 70px -> 48px, brand box matches the new sidebar width */
-  .navbar.default-layout-navbar .navbar-brand-wrapper { width: 148px; height: 48px; }
+  .navbar.default-layout-navbar .navbar-brand-wrapper {
+    width: 148px;
+    height: 48px;
+  }
   .navbar.default-layout-navbar .navbar-brand-wrapper .navbar-brand img {
-    max-height: 32px !important;   /* the logo has an inline height, so cap it */
+    max-height: 32px !important; /* the logo has an inline height, so cap it */
     width: auto;
     margin: auto;
   }
@@ -22,35 +24,87 @@
     padding-left: 12px;
     padding-right: 12px;
   }
-  .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-toggler { height: 48px; }
-  .navbar.default-layout-navbar .navbar-menu-wrapper .search-field h3 { font-size: 15px; margin: 0; }
-  .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link { height: 48px; }
+  .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-toggler {
+    height: 48px;
+  }
+  .navbar.default-layout-navbar .navbar-menu-wrapper .search-field h3 {
+    font-size: 15px;
+    margin: 0;
+  }
+  .navbar.default-layout-navbar
+    .navbar-menu-wrapper
+    .navbar-nav
+    .nav-item
+    .nav-link {
+    height: 48px;
+  }
 
   /* body below the header */
-  .page-body-wrapper { padding-top: 48px; min-height: calc(100vh - 48px); }
+  .page-body-wrapper {
+    padding-top: 48px;
+    min-height: calc(100vh - 48px);
+  }
 
   /* sidebar 260px -> 148px */
-  .sidebar { width: 148px; min-height: calc(100vh - 48px); }
-  .sidebar .nav { margin-bottom: 16px; }
-  .sidebar .nav .nav-item { padding: 0 .7rem; }
-  .sidebar .nav .nav-item .nav-link { padding: .5rem 0; }
-  .sidebar .nav .nav-item .nav-link .menu-title { font-size: 12px; }
-  .sidebar .nav .nav-item .nav-link i.menu-icon { font-size: .95rem; }
-  .sidebar .nav .nav-item .nav-link i.menu-arrow { font-size: .9rem; }
-  .sidebar .nav .nav-item.nav-profile { display: none; }     /* name/photo is already in the header */
+  .sidebar {
+    width: 148px;
+    min-height: calc(100vh - 48px);
+  }
+  .sidebar .nav {
+    margin-bottom: 16px;
+  }
+  .sidebar .nav .nav-item {
+    padding: 0 0.7rem;
+  }
+  .sidebar .nav .nav-item .nav-link {
+    padding: 0.5rem 0;
+  }
+  .sidebar .nav .nav-item .nav-link .menu-title {
+    font-size: 12px;
+  }
+  .sidebar .nav .nav-item .nav-link i.menu-icon {
+    font-size: 0.95rem;
+  }
+  .sidebar .nav .nav-item .nav-link i.menu-arrow {
+    font-size: 0.9rem;
+  }
+  .sidebar .nav .nav-item.nav-profile {
+    display: none;
+  } /* name/photo is already in the header */
 
   /* sub menus */
-  .sidebar .nav.sub-menu { margin-bottom: 4px; }
-  .sidebar .nav.sub-menu .nav-item .nav-link { padding: .32rem 0 .32rem .9rem; font-size: 11.5px; }
-  .sidebar .nav.sub-menu .nav-item .nav-link:before { font-size: .6rem; }
+  .sidebar .nav.sub-menu {
+    margin-bottom: 4px;
+  }
+  .sidebar .nav.sub-menu .nav-item .nav-link {
+    padding: 0.32rem 0 0.32rem 0.9rem;
+    font-size: 11.5px;
+  }
+  .sidebar .nav.sub-menu .nav-item .nav-link:before {
+    font-size: 0.6rem;
+  }
 
   /* main area takes the freed space; remove the 80% width that left an empty strip */
-  .main-panel { width: calc(100% - 148px); min-height: calc(100vh - 48px); }
-  .content-wrapper { width: 100%; padding: .7rem .8rem; }
-  .page-header { margin-bottom: .5rem; }
-  .content-wrapper .card .card-body { padding: .85rem; }
-  .content-wrapper .card .card-header { padding: .5rem .85rem; }
-  footer.footer { padding: 8px 15px; }
+  .main-panel {
+    width: calc(100% - 148px);
+    min-height: calc(100vh - 48px);
+  }
+  .content-wrapper {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+  }
+  .page-header {
+    margin-bottom: 0.5rem;
+  }
+  .content-wrapper .card .card-body {
+    padding: 0.85rem;
+  }
+  .content-wrapper .card .card-header {
+    padding: 0.5rem 0.85rem;
+  }
+  footer.footer {
+    padding: 8px 15px;
+  }
 }
 
 /* ---------------------------------------------------------------------
@@ -58,64 +112,578 @@
       lead.php and employee_all_leads.php)
    The "body" prefix makes these win over the page's own <style> block.
    --------------------------------------------------------------------- */
-body .crm-wrap.crm-ultra { padding: 8px 10px; max-width: none; margin: 0; }
+body .crm-wrap.crm-ultra {
+  padding: 8px 10px;
+  max-width: none;
+  margin: 0;
+}
 
-body .crm-wrap.crm-ultra .crm-page-header { margin-bottom: 8px; gap: 8px; }
-body .crm-wrap.crm-ultra .crm-page-header h3 { font-size: 16px; }
-body .crm-wrap.crm-ultra .crm-page-header .icon-badge { width: 28px; height: 28px; font-size: 13px; border-radius: 8px; }
-body .crm-wrap.crm-ultra .crm-back-btn { padding: 4px 10px; font-size: 11px; }
+body .crm-wrap.crm-ultra .crm-page-header {
+  margin-bottom: 8px;
+  gap: 8px;
+}
+body .crm-wrap.crm-ultra .crm-page-header h3 {
+  font-size: 16px;
+}
+body .crm-wrap.crm-ultra .crm-page-header .icon-badge {
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+body .crm-wrap.crm-ultra .crm-back-btn {
+  padding: 4px 10px;
+  font-size: 11px;
+}
 
 /* stat cards */
-body .crm-wrap.crm-ultra .crm-stats { gap: 8px; margin-bottom: 8px; }
-body .crm-wrap.crm-ultra .crm-stat-card { padding: 6px 10px; gap: 8px; border-radius: 10px; }
-body .crm-wrap.crm-ultra .crm-stat-icon { width: 26px; height: 26px; font-size: 11px; border-radius: 7px; }
-body .crm-wrap.crm-ultra .crm-stat-value { font-size: 14px; }
-body .crm-wrap.crm-ultra .crm-stat-label { font-size: 9.5px; margin-top: 1px; }
+body .crm-wrap.crm-ultra .crm-stats {
+  gap: 8px;
+  margin-bottom: 8px;
+}
+body .crm-wrap.crm-ultra .crm-stat-card {
+  padding: 6px 10px;
+  gap: 8px;
+  border-radius: 10px;
+}
+body .crm-wrap.crm-ultra .crm-stat-icon {
+  width: 26px;
+  height: 26px;
+  font-size: 11px;
+  border-radius: 7px;
+}
+body .crm-wrap.crm-ultra .crm-stat-value {
+  font-size: 14px;
+}
+body .crm-wrap.crm-ultra .crm-stat-label {
+  font-size: 9.5px;
+  margin-top: 1px;
+}
 
 /* filters */
-body .crm-wrap.crm-ultra .filter-box { padding: 8px 10px; gap: 6px 10px; margin-bottom: 8px; border-radius: 10px; }
-body .crm-wrap.crm-ultra .filter-box .f-group { gap: 2px; }
-body .crm-wrap.crm-ultra .filter-box label { font-size: 9.5px; }
+body .crm-wrap.crm-ultra .filter-box {
+  padding: 8px 10px;
+  gap: 6px 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+}
+body .crm-wrap.crm-ultra .filter-box .f-group {
+  gap: 2px;
+}
+body .crm-wrap.crm-ultra .filter-box label {
+  font-size: 9.5px;
+}
 body .crm-wrap.crm-ultra .filter-box input,
-body .crm-wrap.crm-ultra .filter-box select { padding: 3px 7px; font-size: 11.5px; height: 26px; }
-body .crm-wrap.crm-ultra .filter-box button { padding: 4px 14px; font-size: 11.5px; }
-body .crm-wrap.crm-ultra .filter-box .f-actions { margin-top: 0; gap: 6px; }
+body .crm-wrap.crm-ultra .filter-box select {
+  padding: 3px 7px;
+  font-size: 11.5px;
+  height: 26px;
+}
+body .crm-wrap.crm-ultra .filter-box button {
+  padding: 4px 14px;
+  font-size: 11.5px;
+}
+body .crm-wrap.crm-ultra .filter-box .f-actions {
+  margin-top: 0;
+  gap: 6px;
+}
 
 /* card around the table */
-body .crm-wrap.crm-ultra .crm-card { margin-bottom: 8px; border-radius: 10px; }
-body .crm-wrap.crm-ultra .crm-card .card-header { padding: 6px 10px; font-size: 12px; }
-body .crm-wrap.crm-ultra .crm-card .card-body { padding: 4px 6px; }
-body .crm-wrap.crm-ultra .crm-count-pill { padding: 1px 8px; font-size: 10.5px; }
+body .crm-wrap.crm-ultra .crm-card {
+  margin-bottom: 8px;
+  border-radius: 10px;
+}
+body .crm-wrap.crm-ultra .crm-card .card-header {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+body .crm-wrap.crm-ultra .crm-card .card-body {
+  padding: 4px 6px;
+}
+body .crm-wrap.crm-ultra .crm-count-pill {
+  padding: 1px 8px;
+  font-size: 10.5px;
+}
 
 /* the table itself */
-body .crm-wrap.crm-ultra table.crm-table thead th { padding: 4px 6px; font-size: 9.5px; letter-spacing: .02em; white-space: nowrap; }
-body .crm-wrap.crm-ultra table.crm-table tbody td { padding: 2px 6px; font-size: 11.5px; line-height: 1.25; vertical-align: middle; }
-body .crm-wrap.crm-ultra table.crm-table td.truncate { max-width: 130px; }
+body .crm-wrap.crm-ultra table.crm-table thead th {
+  padding: 4px 6px;
+  font-size: 9.5px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+body .crm-wrap.crm-ultra table.crm-table tbody td {
+  padding: 2px 6px;
+  font-size: 11.5px;
+  line-height: 1.25;
+  vertical-align: middle;
+}
+body .crm-wrap.crm-ultra table.crm-table td.truncate {
+  max-width: 130px;
+}
 
 /* pills, badges, buttons inside rows */
-body .crm-wrap.crm-ultra .type-pill { padding: 1px 6px; font-size: 9.5px; }
+body .crm-wrap.crm-ultra .type-pill {
+  padding: 1px 6px;
+  font-size: 9.5px;
+}
 body .crm-wrap.crm-ultra .badge-status,
 body .crm-wrap.crm-ultra .badge-missed,
 body .crm-wrap.crm-ultra .badge-success,
 body .crm-wrap.crm-ultra .badge-warning,
 body .crm-wrap.crm-ultra .badge-danger,
-body .crm-wrap.crm-ultra .badge-neutral { padding: 1px 7px; font-size: 9.5px; }
+body .crm-wrap.crm-ultra .badge-neutral {
+  padding: 1px 7px;
+  font-size: 9.5px;
+}
 body .crm-wrap.crm-ultra .badge-tag,
-body .crm-wrap.crm-ultra .badge-tag-empty { padding: 1px 7px; font-size: 9.5px; }
-body .crm-wrap.crm-ultra .action-btn { width: 22px; height: 22px; font-size: 10px; margin-right: 3px; }
-body .crm-wrap.crm-ultra .reels-btn { padding: 2px 8px; font-size: 10px; }
-body .crm-wrap.crm-ultra .reels-status { font-size: 9.5px; margin-top: 1px; }
+body .crm-wrap.crm-ultra .badge-tag-empty {
+  padding: 1px 7px;
+  font-size: 9.5px;
+}
+body .crm-wrap.crm-ultra .action-btn {
+  width: 22px;
+  height: 22px;
+  font-size: 10px;
+  margin-right: 3px;
+}
+body .crm-wrap.crm-ultra .reels-btn {
+  padding: 2px 8px;
+  font-size: 10px;
+}
+body .crm-wrap.crm-ultra .reels-status {
+  font-size: 9.5px;
+  margin-top: 1px;
+}
 
 /* pagination */
-body .crm-wrap.crm-ultra .crm-pagination { margin-top: 6px; gap: 3px; }
+body .crm-wrap.crm-ultra .crm-pagination {
+  margin-top: 6px;
+  gap: 3px;
+}
 body .crm-wrap.crm-ultra .crm-pagination li a,
-body .crm-wrap.crm-ultra .crm-pagination li span { min-width: 24px; height: 24px; font-size: 11px; }
+body .crm-wrap.crm-ultra .crm-pagination li span {
+  min-width: 24px;
+  height: 24px;
+  font-size: 11px;
+}
 
 /* the old "Compact View / Comfortable View" button is not needed any more */
-body .crm-wrap.crm-ultra #densityToggleBtn { display: none; }
+body .crm-wrap.crm-ultra #densityToggleBtn {
+  display: none;
+}
 
 /* keep the phone layout (cards) exactly as before */
 @media (max-width: 768px) {
-  body .crm-wrap.crm-ultra { padding: 10px; }
-  body .crm-wrap.crm-ultra table.crm-table tbody td { padding: 6px 4px; font-size: 12px; }
+  body .crm-wrap.crm-ultra {
+    padding: 10px;
+  }
+  body .crm-wrap.crm-ultra table.crm-table tbody td {
+    padding: 6px 4px;
+    font-size: 12px;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   3. Compact "Lead Details" page  (detail_lead_details?view=...)
+      Everything is scoped to .lead-details-wrap, so no HTML change is needed.
+      "body" prefix + !important are used only where the page sets inline styles.
+   --------------------------------------------------------------------- */
+@media (min-width: 992px) {
+  /* the page pulls itself outward by 24px to touch the edges; match the new smaller padding */
+  body .lead-details-wrap {
+    margin: -0.7rem -0.8rem 0;
+    padding: 8px 10px 10px;
+  }
+}
+
+/* title row + quick action buttons */
+body .lead-details-wrap .lead-title-row {
+  margin-bottom: 8px;
+  gap: 8px;
+}
+body .lead-details-wrap .lead-page-title {
+  font-size: 17px;
+  gap: 8px;
+}
+body .lead-details-wrap .lead-id-badge {
+  font-size: 10.5px;
+  padding: 2px 8px;
+}
+body .lead-details-wrap .lead-quick-actions {
+  gap: 6px;
+}
+body .lead-details-wrap .qa-btn {
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: 8px;
+  gap: 5px;
+}
+
+/* hero panel (avatar, name, phone, score ring) */
+body .lead-details-wrap .lead-hero-panel {
+  padding: 8px 14px;
+  gap: 14px;
+  border-radius: 10px;
+}
+body .lead-details-wrap .lead-hero-left {
+  gap: 10px;
+  flex-basis: 260px;
+}
+body .lead-details-wrap .lead-avatar {
+  width: 38px;
+  height: 38px;
+  font-size: 14px;
+}
+body .lead-details-wrap .lead-name-input {
+  font-size: 15px;
+  padding: 0 4px;
+  max-width: 220px;
+}
+body .lead-details-wrap .verified-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+}
+body .lead-details-wrap .lead-meta-row {
+  margin-top: 2px;
+  gap: 10px;
+  font-size: 11.5px;
+}
+body .lead-details-wrap .lead-hero-mid {
+  padding: 6px 12px;
+  min-width: 170px;
+  border-radius: 8px;
+}
+body .lead-details-wrap .mid-line {
+  font-size: 14px;
+}
+body .lead-details-wrap .mid-line-sub {
+  font-size: 11px;
+  margin-top: 1px;
+}
+body .lead-details-wrap .score-label {
+  font-size: 10px;
+  margin-bottom: 2px;
+}
+body .lead-details-wrap .lead-score-ring {
+  width: 48px;
+  height: 48px;
+}
+body .lead-details-wrap .lead-score-inner {
+  width: 36px;
+  height: 36px;
+}
+body .lead-details-wrap .score-val {
+  font-size: 11px;
+}
+body .lead-details-wrap .hot-lead-label {
+  margin-top: 2px;
+  font-size: 10.5px;
+}
+
+/* pincode warning */
+body .lead-details-wrap > .alert {
+  margin-top: 6px !important;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* quick-glance stat strip */
+body .lead-details-wrap .lead-stat-strip {
+  gap: 6px;
+  margin: 8px 0 8px;
+}
+body .lead-details-wrap .stat-chip {
+  padding: 5px 9px;
+  border-radius: 8px;
+}
+body .lead-details-wrap .stat-chip .sc-label {
+  font-size: 9.5px;
+  margin-bottom: 1px;
+  gap: 4px;
+}
+body .lead-details-wrap .stat-chip .sc-value {
+  font-size: 12.5px;
+  line-height: 1.2;
+}
+body .lead-details-wrap .stat-chip .sc-sub {
+  font-size: 10px;
+  margin-top: 0;
+}
+
+/* tabs */
+body .lead-details-wrap .lead-tabs {
+  margin-top: 8px;
+}
+body .lead-details-wrap .lead-tabs .nav-link {
+  padding: 5px 12px;
+  font-size: 12.5px;
+}
+body .lead-details-wrap .tab-content {
+  margin-top: 8px !important;
+} /* page sets this inline */
+body .lead-details-wrap > .row {
+  margin-top: 8px !important;
+} /* notes row, also inline */
+
+/* tighter gutters between the three columns */
+body .lead-details-wrap .row {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+body .lead-details-wrap .row > [class*="col-"] {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+body .lead-details-wrap .mb-3 {
+  margin-bottom: 8px !important;
+}
+body .lead-details-wrap .mt-3 {
+  margin-top: 8px !important;
+}
+body .lead-details-wrap .card {
+  border-radius: 10px;
+}
+
+/* card headers, general */
+body .lead-details-wrap .card-header {
+  padding: 6px 12px;
+  font-size: 12.5px;
+}
+
+/* customer information rows */
+body .lead-details-wrap .info-row {
+  padding: 5px 12px;
+  gap: 8px;
+}
+body .lead-details-wrap .info-row .info-label {
+  font-size: 11.5px;
+  min-width: 118px;
+  gap: 7px;
+}
+body .lead-details-wrap .info-row .info-value {
+  font-size: 12.5px;
+}
+body .lead-details-wrap .info-row .form-control-sm {
+  height: 24px;
+  padding: 1px 6px;
+  font-size: 12px;
+}
+body .lead-details-wrap .mini-icon-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+body .lead-details-wrap .pill {
+  padding: 1px 9px;
+  font-size: 11px;
+}
+body .lead-details-wrap #lead_description {
+  height: 64px !important;
+  min-height: 64px !important;
+  font-size: 12px;
+}
+body
+  .lead-details-wrap
+  .info-card
+  .card-body
+  > div[style*="padding:16px 20px"] {
+  padding: 8px 12px !important;
+}
+body .lead-details-wrap .crm-btn {
+  padding: 5px 14px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+/* upcoming appointment card */
+body .lead-details-wrap .appt-body {
+  padding: 8px 12px 2px;
+  gap: 10px;
+}
+body .lead-details-wrap .appt-date-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+}
+body .lead-details-wrap .appt-date-box .dom {
+  font-size: 15px;
+}
+body .lead-details-wrap .appt-date-box .dow,
+body .lead-details-wrap .appt-date-box .mon {
+  font-size: 8.5px;
+}
+body .lead-details-wrap .appt-time {
+  font-size: 13.5px;
+}
+body .lead-details-wrap .appt-doc {
+  font-size: 11.5px;
+}
+body .lead-details-wrap .appt-actions {
+  padding: 6px 12px 8px;
+  gap: 5px;
+}
+body .lead-details-wrap .appt-btn {
+  padding: 3px 9px;
+  font-size: 11px;
+}
+body .lead-details-wrap .appt-empty {
+  padding: 10px;
+  font-size: 12px;
+}
+
+/* summary + appointment history */
+body .lead-details-wrap .summary-stats {
+  padding: 8px 4px;
+}
+body .lead-details-wrap .summary-stat i {
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+body .lead-details-wrap .summary-stat .num {
+  font-size: 14px;
+}
+body .lead-details-wrap .summary-stat .lbl {
+  font-size: 10px;
+}
+body .lead-details-wrap .summary-foot {
+  padding: 6px 12px 8px;
+  font-size: 11px;
+}
+body .lead-details-wrap .summary-foot .owner .dot {
+  width: 20px;
+  height: 20px;
+  font-size: 9px;
+}
+body .lead-details-wrap table.table th,
+body .lead-details-wrap table.table td {
+  padding: 3px 6px;
+  font-size: 11.5px;
+}
+body .lead-details-wrap .card-body.p-2 {
+  padding: 4px !important;
+}
+
+/* tags */
+body .lead-details-wrap .tags-wrap {
+  padding: 8px 12px 10px;
+  gap: 5px;
+}
+body .lead-details-wrap .tag-chip {
+  padding: 2px 9px;
+  font-size: 11px;
+}
+body .lead-details-wrap .tag-add-select {
+  padding: 2px 9px;
+  font-size: 11px;
+}
+
+/* activity timeline (right column) */
+body .lead-details-wrap .activity-item {
+  padding: 5px 12px;
+  gap: 8px;
+}
+body .lead-details-wrap .activity-dot {
+  width: 24px;
+  height: 24px;
+  font-size: 10px;
+}
+body .lead-details-wrap .activity-title {
+  font-size: 12px;
+}
+body .lead-details-wrap .activity-desc {
+  font-size: 11.5px;
+}
+body .lead-details-wrap .activity-time {
+  font-size: 10px;
+}
+body .lead-details-wrap .activity-view-all {
+  padding: 4px 12px 8px;
+}
+body .lead-details-wrap .activity-view-all a {
+  font-size: 11.5px;
+}
+
+/* "Activities" tab (big vertical timelines) */
+body .lead-details-wrap .call-timeline {
+  padding: 10px 0;
+}
+body .lead-details-wrap .timeline-step {
+  margin-bottom: 20px;
+}
+body .lead-details-wrap .timeline-step::before {
+  top: -17px;
+}
+body .lead-details-wrap .timeline-icon {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 13px;
+}
+body .lead-details-wrap .timeline-text {
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+/* notes & comments panel */
+body .lead-details-wrap .notes-tabs .n-tab {
+  padding: 7px 12px;
+  font-size: 12px;
+}
+body .lead-details-wrap .note-editor {
+  padding: 8px 12px 0 !important;
+} /* page sets this inline */
+body .lead-details-wrap .note-editor textarea.note-input {
+  min-height: 44px;
+  font-size: 12.5px;
+}
+body .lead-details-wrap .note-toolbar {
+  padding: 6px 12px 8px;
+}
+body .lead-details-wrap #submited_comment_form .px-3 {
+  padding: 0 12px !important;
+}
+body .lead-details-wrap #submited_comment_form .alert {
+  margin: 6px 12px 0 !important;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* WhatsApp / files tabs */
+body .lead-details-wrap #wati_chat_scroll {
+  max-height: 360px !important;
+  padding: 8px 12px;
+}
+body .lead-details-wrap #tab-whatsapp .card-footer {
+  padding: 6px 12px;
+}
+
+/* ---------------------------------------------------------------------
+   4. "Lead List" table on status_wise_lead.php (DataTable #all_tables_details)
+   --------------------------------------------------------------------- */
+#all_tables_details thead th {
+  padding: 4px 6px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+#all_tables_details tbody td {
+  padding: 3px 6px;
+  font-size: 11.5px;
+  line-height: 1.25;
+  vertical-align: middle;
+}
+#all_tables_details .btn {
+  padding: 2px 8px;
+  font-size: 11px;
+}
+#all_tables_details_wrapper .dataTables_filter input,
+#all_tables_details_wrapper .dataTables_length select {
+  height: 26px;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+#all_tables_details_wrapper .pagination .page-link {
+  padding: 3px 8px;
+  font-size: 11.5px;
 }
