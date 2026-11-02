@@ -478,7 +478,7 @@ echo json_encode($data);}
    $notification=array('from_username'=>(string)$from_username,'to_username'=>(string)$to_username,'from_userid'=>(int)$from_userid,'to_userid'=>(int)$to_userid,'message'=>$message,'view'=>'0','created_date'=>date('Y-m-d H:i:s'),'status'=>'active','lead_id'=>$lead_id,'Notification_type'=>$Notification_type);
     $con=$this->GenericModel->insert_generic_record('tbl_notification',$notification);
  
-   if(count($lead_getting)<=100){
+   if(count($lead_getting)<=1000){
     $from_username=$this->session->userdata('USERNAME');
    $from_userid=$this->session->userdata('ADMIN_ID');
 $comment_array = array(
