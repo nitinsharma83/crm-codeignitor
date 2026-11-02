@@ -1091,17 +1091,7 @@ $pincodeGateAttr = $hasPincode ? '' : 'disabled title="Add a pincode to this lea
                             <div class="info-value"><span class="pill pill-blue"><?php echo htmlspecialchars($q[0]->lead_source); ?></span></div>
                         </div>
 
-                        <div class="info-row">
-                            <div class="info-label"><i class="fa fa-fire"></i> Lead Priority</div>
-                            <div class="info-value" style="flex:1; max-width:160px; margin-left:auto;">
-                                <select id="lead_priority" class="form-control form-control-sm">
-                                    <option value="HOT"  <?php echo ($q[0]->lead_priority=='HOT')  ? 'selected' : ''; ?>>HOT</option>
-                                    <option value="WARM" <?php echo ($q[0]->lead_priority=='WARM') ? 'selected' : ''; ?>>WARM</option>
-                                    <option value="COLD" <?php echo ($q[0]->lead_priority=='COLD') ? 'selected' : ''; ?>>COLD</option>
-                                    <option value="DEAD" <?php echo ($q[0]->lead_priority=='DEAD') ? 'selected' : ''; ?>>DEAD</option>
-                                </select>
-                            </div>
-                        </div>
+                        
 
                         <div class="info-row">
                             <div class="info-label"><i class="fa fa-flag"></i> Lead Status</div>
