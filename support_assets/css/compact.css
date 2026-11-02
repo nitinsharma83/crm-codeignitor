@@ -1,0 +1,121 @@
+/* =====================================================================
+   compact.css  -  slim sidebar + compact lead pages
+   Load it AFTER style.css (see head.php).  Delete this file / the <link>
+   to go back to the old look.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. Slim sidebar + header  (desktop only; phones keep the slide-out menu)
+   --------------------------------------------------------------------- */
+@media (min-width: 992px) {
+
+  /* header bar: 70px -> 48px, brand box matches the new sidebar width */
+  .navbar.default-layout-navbar .navbar-brand-wrapper { width: 148px; height: 48px; }
+  .navbar.default-layout-navbar .navbar-brand-wrapper .navbar-brand img {
+    max-height: 32px !important;   /* the logo has an inline height, so cap it */
+    width: auto;
+    margin: auto;
+  }
+  .navbar.default-layout-navbar .navbar-menu-wrapper {
+    width: calc(100% - 148px);
+    height: 48px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-toggler { height: 48px; }
+  .navbar.default-layout-navbar .navbar-menu-wrapper .search-field h3 { font-size: 15px; margin: 0; }
+  .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link { height: 48px; }
+
+  /* body below the header */
+  .page-body-wrapper { padding-top: 48px; min-height: calc(100vh - 48px); }
+
+  /* sidebar 260px -> 148px */
+  .sidebar { width: 148px; min-height: calc(100vh - 48px); }
+  .sidebar .nav { margin-bottom: 16px; }
+  .sidebar .nav .nav-item { padding: 0 .7rem; }
+  .sidebar .nav .nav-item .nav-link { padding: .5rem 0; }
+  .sidebar .nav .nav-item .nav-link .menu-title { font-size: 12px; }
+  .sidebar .nav .nav-item .nav-link i.menu-icon { font-size: .95rem; }
+  .sidebar .nav .nav-item .nav-link i.menu-arrow { font-size: .9rem; }
+  .sidebar .nav .nav-item.nav-profile { display: none; }     /* name/photo is already in the header */
+
+  /* sub menus */
+  .sidebar .nav.sub-menu { margin-bottom: 4px; }
+  .sidebar .nav.sub-menu .nav-item .nav-link { padding: .32rem 0 .32rem .9rem; font-size: 11.5px; }
+  .sidebar .nav.sub-menu .nav-item .nav-link:before { font-size: .6rem; }
+
+  /* main area takes the freed space; remove the 80% width that left an empty strip */
+  .main-panel { width: calc(100% - 148px); min-height: calc(100vh - 48px); }
+  .content-wrapper { width: 100%; padding: .7rem .8rem; }
+  .page-header { margin-bottom: .5rem; }
+  .content-wrapper .card .card-body { padding: .85rem; }
+  .content-wrapper .card .card-header { padding: .5rem .85rem; }
+  footer.footer { padding: 8px 15px; }
+}
+
+/* ---------------------------------------------------------------------
+   2. Compact lead pages   (only where the wrapper has class "crm-ultra":
+      lead.php and employee_all_leads.php)
+   The "body" prefix makes these win over the page's own <style> block.
+   --------------------------------------------------------------------- */
+body .crm-wrap.crm-ultra { padding: 8px 10px; max-width: none; margin: 0; }
+
+body .crm-wrap.crm-ultra .crm-page-header { margin-bottom: 8px; gap: 8px; }
+body .crm-wrap.crm-ultra .crm-page-header h3 { font-size: 16px; }
+body .crm-wrap.crm-ultra .crm-page-header .icon-badge { width: 28px; height: 28px; font-size: 13px; border-radius: 8px; }
+body .crm-wrap.crm-ultra .crm-back-btn { padding: 4px 10px; font-size: 11px; }
+
+/* stat cards */
+body .crm-wrap.crm-ultra .crm-stats { gap: 8px; margin-bottom: 8px; }
+body .crm-wrap.crm-ultra .crm-stat-card { padding: 6px 10px; gap: 8px; border-radius: 10px; }
+body .crm-wrap.crm-ultra .crm-stat-icon { width: 26px; height: 26px; font-size: 11px; border-radius: 7px; }
+body .crm-wrap.crm-ultra .crm-stat-value { font-size: 14px; }
+body .crm-wrap.crm-ultra .crm-stat-label { font-size: 9.5px; margin-top: 1px; }
+
+/* filters */
+body .crm-wrap.crm-ultra .filter-box { padding: 8px 10px; gap: 6px 10px; margin-bottom: 8px; border-radius: 10px; }
+body .crm-wrap.crm-ultra .filter-box .f-group { gap: 2px; }
+body .crm-wrap.crm-ultra .filter-box label { font-size: 9.5px; }
+body .crm-wrap.crm-ultra .filter-box input,
+body .crm-wrap.crm-ultra .filter-box select { padding: 3px 7px; font-size: 11.5px; height: 26px; }
+body .crm-wrap.crm-ultra .filter-box button { padding: 4px 14px; font-size: 11.5px; }
+body .crm-wrap.crm-ultra .filter-box .f-actions { margin-top: 0; gap: 6px; }
+
+/* card around the table */
+body .crm-wrap.crm-ultra .crm-card { margin-bottom: 8px; border-radius: 10px; }
+body .crm-wrap.crm-ultra .crm-card .card-header { padding: 6px 10px; font-size: 12px; }
+body .crm-wrap.crm-ultra .crm-card .card-body { padding: 4px 6px; }
+body .crm-wrap.crm-ultra .crm-count-pill { padding: 1px 8px; font-size: 10.5px; }
+
+/* the table itself */
+body .crm-wrap.crm-ultra table.crm-table thead th { padding: 4px 6px; font-size: 9.5px; letter-spacing: .02em; white-space: nowrap; }
+body .crm-wrap.crm-ultra table.crm-table tbody td { padding: 2px 6px; font-size: 11.5px; line-height: 1.25; vertical-align: middle; }
+body .crm-wrap.crm-ultra table.crm-table td.truncate { max-width: 130px; }
+
+/* pills, badges, buttons inside rows */
+body .crm-wrap.crm-ultra .type-pill { padding: 1px 6px; font-size: 9.5px; }
+body .crm-wrap.crm-ultra .badge-status,
+body .crm-wrap.crm-ultra .badge-missed,
+body .crm-wrap.crm-ultra .badge-success,
+body .crm-wrap.crm-ultra .badge-warning,
+body .crm-wrap.crm-ultra .badge-danger,
+body .crm-wrap.crm-ultra .badge-neutral { padding: 1px 7px; font-size: 9.5px; }
+body .crm-wrap.crm-ultra .badge-tag,
+body .crm-wrap.crm-ultra .badge-tag-empty { padding: 1px 7px; font-size: 9.5px; }
+body .crm-wrap.crm-ultra .action-btn { width: 22px; height: 22px; font-size: 10px; margin-right: 3px; }
+body .crm-wrap.crm-ultra .reels-btn { padding: 2px 8px; font-size: 10px; }
+body .crm-wrap.crm-ultra .reels-status { font-size: 9.5px; margin-top: 1px; }
+
+/* pagination */
+body .crm-wrap.crm-ultra .crm-pagination { margin-top: 6px; gap: 3px; }
+body .crm-wrap.crm-ultra .crm-pagination li a,
+body .crm-wrap.crm-ultra .crm-pagination li span { min-width: 24px; height: 24px; font-size: 11px; }
+
+/* the old "Compact View / Comfortable View" button is not needed any more */
+body .crm-wrap.crm-ultra #densityToggleBtn { display: none; }
+
+/* keep the phone layout (cards) exactly as before */
+@media (max-width: 768px) {
+  body .crm-wrap.crm-ultra { padding: 10px; }
+  body .crm-wrap.crm-ultra table.crm-table tbody td { padding: 6px 4px; font-size: 12px; }
+}

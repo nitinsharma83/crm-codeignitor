@@ -513,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <div class="content-wrapper">
-  <div class="crm-wrap" id="crmWrap">
+    <div class="crm-wrap crm-ultra" id="crmWrap">
 
     <div class="crm-page-header">
       <h3>

@@ -13,6 +13,7 @@
   <link href="<?php echo base_url(); ?>support_assets/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
   <link rel="stylesheet" href="<?php echo base_url(); ?>support_assets/css/dataTables.bootstrap4.min.css">
   <!-- endinject -->
+     <link rel="stylesheet" href="<?php echo base_url(); ?>support_assets/css/compact.css?v=1">
   <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.png" />
   
 </head>

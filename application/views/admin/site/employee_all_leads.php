@@ -397,7 +397,7 @@ table.crm-table tbody tr.row-missed:hover { background: #fbdedb !important; }
 </style>
 
 <div class="content-wrapper">
-  <div class="crm-wrap">
+  <div class="crm-wrap crm-ultra">
 
     <div class="crm-page-header">
       <h3>

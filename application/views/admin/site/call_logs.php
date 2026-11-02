@@ -217,7 +217,7 @@ audio.crm-audio { width:170px; height:32px; }
 </style>
 
 <div class="content-wrapper">
-  <div class="crm-wrap">
+  <div class="crm-wrap crm-ultra">
 
     <div class="crm-page-header">
       <h3>
