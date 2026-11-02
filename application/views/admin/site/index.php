@@ -330,7 +330,7 @@ $totalRedirectUrl = $base_url . http_build_query([
     'date_to'   => $date_to
 ]);
 ?>
-<div class="col-md-6">
+<div class="col-md-4">
     <a href="<?= $totalRedirectUrl; ?>" class="card-link">
         <div class="card-glass gradient-total p-3 text-center clickable-card">
             <h6>Total Leads</h6>
@@ -346,7 +346,7 @@ $totalApptRedirectUrl = $base_url . http_build_query([
     'date_to'   => $date_to
 ]);
 ?>
-<div class="col-md-6">
+<div class="col-md-4">
     <a href="<?= $totalApptRedirectUrl; ?>" class="card-link">
         <div class="card-glass p-3 text-center clickable-card" style="border-left:5px solid #04AA6D; background: linear-gradient(135deg,#04AA6D,#037a4e); color:#fff;">
             <h6 style="color:#fff;">Total Appointments</h6>
